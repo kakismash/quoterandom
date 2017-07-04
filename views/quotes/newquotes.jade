@@ -1,0 +1,29 @@
+extends ../default
+
+block content
+  //view for new quotes
+  include ../templates/nav
+  div(class=['ui', 'container', 'grid', 'stackable'])  
+    div(class=['sixteen', 'wide', 'column'])
+      h1(class=['ui', 'header', 'blue', 'dividing'])= 'New Quotes!'
+      div(class='form-newquote')
+        form(class=['ui', 'form', 'inverted', 'segment'] action='/createquotes' method='post')
+          div(class=['ui', 'inverted', 'divider','horizontal', 'two'])
+          div(class=['ui', 'field'])
+            label(for='quote')= 'quote:'
+            input(class='ten' type= 'text' name='quote' placeholder='quote') 
+          div(class=['ui', 'two','inverted', 'divider'])
+          div(class=['ui'])
+            label(for='author')= 'author:'
+            input(type= 'text' name='author' placeholder='author')
+          div(class=['ui'])
+            label(for='category')= 'category:'
+            input(type= 'text' name='category' placeholder='category')     
+          button(class=['ui', 'button', 'basic',  'inverted','black'] type="submit")= 'Create!'   
+          div(class=['ui', 'message', 'error'])   
+        if info != undifined 
+          div(class=['ui','message', 'success'])
+            i(class=['close', 'icon'])
+            div(class='header')= 'Quote created!'   
+            p= info
+  script(src='/javascripts/validation.js')      

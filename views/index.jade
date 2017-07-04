@@ -1,0 +1,44 @@
+extends ./default
+
+block content
+  //
+  include templates/nav
+  div(class='ui centered inverted')
+      h1(class='ui right floated header blue divider horizontal')= 'Welcome to the Random Quotes!'
+      div(class='ui centered sixteen column grid')
+        
+      
+          
+    div(class='ui two column centered grid buttons segment raised inverted' action='./' method='post')
+      div(class='column' )
+        h2(id='text')
+        div(class='ui animated buttons' tabindex='0')
+             form(action='./' method='post')
+               input(type='hidden' name='author' id='input_author')
+               input(type='hidden' name='quote' id='input_quote')    
+               button(class='ui button'  type='submit')= 'Save'
+          
+              
+          div(class='ui basic')
+          div(class='or' data-text='or')
+          button(class='ui positive button' id='btn-random')= 'next'
+        h1(id='author')
+        
+    div(class='ui two column centered grid')
+      div(class='container column')
+        a(class='ui medium circular image' href='https://codepen.io/kaki/pen/BzwNWq')      
+          img(src='/images/quote.jpg')
+        a(class='ui medium circular image' href='https://codepen.io/kaki/pen/EygdBV')      
+          img( src='/images/quote1.jpg') 
+        a(class='ui medium circular image' href='https://codepen.io/kaki/pen/EyWNXp')         
+          img(src='/images/quote2.jpg')
+    if info != undifined 
+      div(class=['ui','message', 'success'])
+        i(class=['close', 'icon'])
+        div(class='header')= 'Quote created!'   
+        p= info          
+  script(src='/javascripts/validation.js')  
+  script(src='/javascripts/quoteAPI.js')      
+  
+    
+  

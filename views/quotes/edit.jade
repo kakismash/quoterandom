@@ -1,0 +1,32 @@
+extends ../default
+
+block content
+  //view for new quotes
+  include ../templates/nav
+  div(class=['ui', 'container', 'grid', 'stackable'])  
+    div(class=['sixteen', 'wide', 'column'])
+      h1(class=['ui', 'header', 'blue', 'dividing'])= 'Edit Quotes!'
+      div(class='form-newquote')
+        form(class=['ui', 'form', 'inverted', 'segment'] action='/edit' method='post')
+          div(class=['ui', 'inverted', 'divider'])
+          div(class=['ui', 'two','fields'])
+          div(class=['ui', 'field'])
+            label(for='quote')= 'quote:'
+            input(type= 'text' name='quote' placeholder='quote' value=quote[0].quote) 
+          div(class=['ui', 'inverted', 'divider'])
+          div(class=['ui', 'fields'])
+            label(for='author')= 'author:'
+            input(type= 'text' name='author' placeholder='author' value=quote[0].author)    
+          div(class=['ui', 'inverted', 'divider'])  
+          div(class=['ui','fields'])
+           label(for='category')= 'category:'
+           input(type= 'text' name='category' placeholder='category' value=quote[0].category)     
+           input(type= 'hidden' name='id_quote' value=quote[0].id_quote)     
+          button(class=['ui', 'button', 'basic',  'inverted','black'] type="submit")= 'Edit!'   
+          div(class=['ui', 'message', 'error'])   
+        if info != undifined 
+          div(class=['ui','message', 'success'])
+            i(class=['close', 'icon'])
+            div(class='header')= 'Quote Edited!'   
+            p= info
+  script(src='/javascripts/validation.js')      

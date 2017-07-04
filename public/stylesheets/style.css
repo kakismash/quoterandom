@@ -1,0 +1,23 @@
+body {
+  background: #a39c12;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  color: #00B2FF;
+}
+img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%) blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .4s ease-in-out;
+
+
+}
+img:hover{
+  -webkit-filter: blur(0);
+	filter: blur(0);
+  -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}

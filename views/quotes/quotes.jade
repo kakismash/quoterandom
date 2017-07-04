@@ -1,0 +1,31 @@
+extends ../default
+
+block content
+  //
+  include ../templates/nav
+  div(class=['ui', 'container', 'grid', 'stackable'])  
+    div(class=['sixteen', 'wide', 'column'])
+      h1(class=['ui', 'header', 'blue', 'dividing'])= 'My Randow quotes!'
+      table(class=['ui', 'table', 'celled, inverted'] id='tbl-quotes')
+        thead
+          tr 
+            th= 'ID'
+            th= 'Author'
+            th= 'quote'
+            th= 'category'
+            th= 'creation date'
+            th= 'action'
+        tbody 
+              each quote in quotes
+                tr
+                  td(id='id_quote')= quote.id_quote
+                  td=quote.author
+                  td=quote.quote
+                  td=quote.category
+                  td=quote.date  
+                  td
+                    a(class=['ui button basic icon'] href='#' data-tooltip='Delete'  data-position='top center' id='btn-delete')
+                      i(class=['trash icon'] )
+                    a(class=['ui button basic icon'] href='/editquotes/'+quote.id_quote data-tooltip='Edit' data-inverted='' data-position='bottom center')
+                      i(class=['cut icon'])        
+  script(src='/javascripts/quote.js')
